@@ -39,6 +39,18 @@ DRY-RUN: 迎宾：第一次见面的三十秒 | 17s | arrival -> greeting -> dir
 
 每个示例都有同名 `.events.json` 测试事件文件。距离提醒是**话术与流程排练**，没有测距传感器、避障、急停或碰撞预防能力。展览中的展品为原创虚构模型，不把模拟演示当作实际技术效果。
 
+## 自动排练所有可行分支
+
+```bash
+python3 -m aima_director rehearse examples/distance-reminder.json --out output/rehearsal
+```
+
+以前一次模拟只能看到自己编写的事件快照。现在会按场景条件生成可行路线与代表性事件文件，包括事件缺失、显式布尔值，以及数字/字符串的非匹配值。重复判断同一事件时会保留前面的约束，能发现图上可到达、但整场固定事件不可能满足的分支，例如先要求 `visitor=true`，随后又要求同一个 `visitor=false`。
+
+输出 `rehearsal.md` 分支覆盖表、带校验和的 `rehearsal.json`，以及每个 `case-NNN/` 的 `events.json`、时间线、SVG、台词和清单。可把生成的事件文件传回 `simulate --events` 重放；覆盖表区分 `covered`、`infeasible` 与 `unexplored`。只有完整探索后才会把未覆盖条件标为不可满足。
+
+默认最多探索 64 条可行决策路径、执行 128 个代表性 case；另有场景展开和总指令上限。`--max-routes`、`--max-cases` 可分别调整至最多 256。触及上限会报告 **INCOMPLETE** 并退出 `3`，不会宣称全覆盖。这里的完整性仅针对本 DSL 的固定事件/相等比较语义及代表性用例，不等同于穷举实时事件流、所有数值或物理行为。所有排练仍为 dry-run，发送的硬件命令为 `0`。
+
 ## 场景 DSL
 
 最小可执行脚本：
@@ -98,6 +110,8 @@ DRY-RUN: 迎宾：第一次见面的三十秒 | 17s | arrival -> greeting -> dir
 
 ## 验证记录
 
-本地已运行 15 项 `unittest`，覆盖三个示例的所有布尔事件组合、时间与资源冲突、损坏 JSON、严格事件类型、SVG 转义、审计篡改、硬件模式拒绝和 CLI 完整导出/校验流程。运行 `python3 scripts/check.py` 可重现测试并验证三个示例的完整导出流程。当前验证记录为本地运行结果。
+本地测试含原有 15 项与新增 8 项分支排练测试：覆盖三个示例、条件相关导致的不可满足路径、事件缺失与显式 false、数字/字符串、相同目标的不同决策、探索上限、可重放导出、审计篡改和 CLI 非零退出。运行 `python3 scripts/check.py` 可重现测试并验证三个示例的完整导出流程。当前验证记录为本地运行结果。
+
+[同类工具与开源比较](docs/landscape.md) 记录 Spot Choreographer、BehaviorTree.CPP 的既有能力、许可证边界、差距及本次独立实现的改进。时间线与分支行为的概念并非本项目首创。
 
 MIT License。示例脚本、渲染图与实现代码均为本项目原创内容；本项目并非智元官方产品。

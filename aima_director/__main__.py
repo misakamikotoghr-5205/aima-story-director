@@ -4,6 +4,7 @@ import argparse
 import sys
 
 from . import ValidationError, __version__, load_json, simulate, validate, verify_audit, write_artifacts
+from . import rehearse, write_rehearsal_artifacts
 
 
 def main(argv=None):
@@ -19,6 +20,11 @@ def main(argv=None):
     play.add_argument("--mode", default="dry-run", help="Only dry-run is implemented; hardware mode fails without sending commands")
     audit = sub.add_parser("verify", help="Check a timeline JSON artifact's integrity hashes")
     audit.add_argument("timeline")
+    suite = sub.add_parser("rehearse", help="Generate bounded branch-coverage fixtures and replayable dry-run artifacts")
+    suite.add_argument("show")
+    suite.add_argument("--out", default="output/rehearsal")
+    suite.add_argument("--max-routes", type=int, default=64)
+    suite.add_argument("--max-cases", type=int, default=128)
     args = parser.parse_args(argv)
     try:
         if args.command == "validate":
@@ -33,6 +39,15 @@ def main(argv=None):
             print(f"{len(result['timeline'])} simulated commands; hardware commands sent: 0")
             for path in paths:
                 print(path)
+        elif args.command == "rehearse":
+            result = rehearse(load_json(args.show), max_routes=args.max_routes, max_cases=args.max_cases)
+            write_rehearsal_artifacts(result, args.out)
+            stats = result["stats"]
+            print(f"REHEARSAL: {stats['cases']} cases | {stats['covered_outcomes']}/{stats['total_outcomes']} branch outcomes covered | {'COMPLETE' if result['complete'] else 'INCOMPLETE'}")
+            print(f"{args.out}/rehearsal.md; hardware commands sent: 0")
+            if not result["complete"]:
+                print("Limits reached: " + ", ".join(result["limit_reasons"]))
+                return 3
         else:
             if not verify_audit(load_json(args.timeline)):
                 raise ValidationError("Audit verification FAILED: invalid artifact or changed content")

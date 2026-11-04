@@ -1,6 +1,8 @@
 """Deterministic robot-show planning tools. No hardware commands are sent."""
 
 from .core import ValidationError, load_json, simulate, validate, verify_audit, write_artifacts
+from .rehearsal import rehearse, verify_rehearsal, write_rehearsal_artifacts
 
 __version__ = "1.0.0"
-__all__ = ["ValidationError", "load_json", "simulate", "validate", "verify_audit", "write_artifacts"]
+__all__ = ["ValidationError", "load_json", "simulate", "validate", "verify_audit", "write_artifacts",
+           "rehearse", "verify_rehearsal", "write_rehearsal_artifacts"]
