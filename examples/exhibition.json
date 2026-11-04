@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "exhibition-story",
+  "title": "展览导览：一件展品的两种讲法",
+  "description": "面向不同停留时间的原创导览脚本。展品为虚构的城市节水模型，短讲与深讲共享开场。",
+  "entry": "intro",
+  "events": { "wants_detail": "boolean" },
+  "scenes": {
+    "intro": {
+      "label": "展品开场",
+      "steps": [
+        { "id": "introduce", "type": "speech", "at_ms": 0, "duration_ms": 7000, "text": "欢迎来到未来城市展台。眼前的节水模型，把一次普通的洗手，变成了一段可以观察的水循环。", "language": "zh-CN" },
+        { "id": "present", "type": "gesture", "at_ms": 800, "duration_ms": 3500, "name": "open-arms", "amplitude": 0.3, "speed": 0.25 },
+        { "id": "look", "type": "wait", "at_ms": 7000, "duration_ms": 2000 },
+        { "id": "select-depth", "type": "branch", "at_ms": 9000, "event": "wants_detail", "equals": true, "then": "detail", "else": "summary" }
+      ]
+    },
+    "detail": {
+      "label": "深入观察",
+      "steps": [
+        { "id": "point-filter", "type": "gesture", "at_ms": 0, "duration_ms": 3000, "name": "point-right", "amplitude": 0.25, "speed": 0.25 },
+        { "id": "explain-loop", "type": "speech", "at_ms": 0, "duration_ms": 9000, "text": "右侧的透明容器代表过滤过程。模型中的蓝色小球代表水量，它们经过处理后，可以再次用于冲洗。这里只展示原理，不代表真实净化效果。", "language": "zh-CN" },
+        { "id": "consider", "type": "wait", "at_ms": 9000, "duration_ms": 2000 },
+        { "id": "question", "type": "speech", "at_ms": 11000, "duration_ms": 5000, "text": "如果把这个想法带回家，您会先从哪一种日常用水开始改变呢？", "language": "zh-CN" }
+      ]
+    },
+    "summary": {
+      "label": "三句话带走",
+      "steps": [
+        { "id": "short-takeaway", "type": "speech", "at_ms": 0, "duration_ms": 6000, "text": "这件模型想表达的是：先减少浪费，再考虑循环利用。您可以继续前往绿色交通展区，谢谢停留。", "language": "zh-CN" },
+        { "id": "thank-you", "type": "gesture", "at_ms": 3500, "duration_ms": 1800, "name": "nod", "amplitude": 0.2, "speed": 0.2 }
+      ]
+    }
+  }
+}

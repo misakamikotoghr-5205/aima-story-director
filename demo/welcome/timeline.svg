@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 435" role="img" aria-labelledby="title desc">
+<title id="title">迎宾：第一次见面的三十秒 — dry-run timeline</title>
+<desc id="desc">Simulated speech, gestures, waits and event decisions across 17 seconds. No hardware commands were sent.</desc>
+<style>text{font-family:system-ui,"Noto Sans CJK SC",sans-serif} .small{font-size:12px;fill:#a9b9c9}.label{font-size:13px;fill:#e8eff7}</style>
+<rect width="1100" height="435" rx="12" fill="#101a29"/>
+<text x="30" y="37" font-size="24" fill="#f1f6fc">Welcome Concierge</text>
+<text x="30" y="65" class="small">AIMA STORY DIRECTOR / DRY-RUN / NO HARDWARE COMMANDS</text>
+<path d="M135 95V365" stroke="#26364b"/>
+<text x="135" y="390" text-anchor="middle" class="small">0s</text>
+<path d="M227 95V365" stroke="#26364b"/>
+<text x="227" y="390" text-anchor="middle" class="small">1.7s</text>
+<path d="M319 95V365" stroke="#26364b"/>
+<text x="319" y="390" text-anchor="middle" class="small">3.4s</text>
+<path d="M411 95V365" stroke="#26364b"/>
+<text x="411" y="390" text-anchor="middle" class="small">5.1s</text>
+<path d="M503 95V365" stroke="#26364b"/>
+<text x="503" y="390" text-anchor="middle" class="small">6.8s</text>
+<path d="M595 95V365" stroke="#26364b"/>
+<text x="595" y="390" text-anchor="middle" class="small">8.5s</text>
+<path d="M687 95V365" stroke="#26364b"/>
+<text x="687" y="390" text-anchor="middle" class="small">10.2s</text>
+<path d="M779 95V365" stroke="#26364b"/>
+<text x="779" y="390" text-anchor="middle" class="small">11.9s</text>
+<path d="M871 95V365" stroke="#26364b"/>
+<text x="871" y="390" text-anchor="middle" class="small">13.6s</text>
+<path d="M963 95V365" stroke="#26364b"/>
+<text x="963" y="390" text-anchor="middle" class="small">15.3s</text>
+<path d="M1055 95V365" stroke="#26364b"/>
+<text x="1055" y="390" text-anchor="middle" class="small">17s</text>
+<text x="30" y="135" class="label">SPEECH</text>
+<path d="M135 157H1055" stroke="#26364b"/>
+<text x="30" y="205" class="label">GESTURE</text>
+<path d="M135 227H1055" stroke="#26364b"/>
+<text x="30" y="275" class="label">WAIT</text>
+<path d="M135 297H1055" stroke="#26364b"/>
+<text x="30" y="345" class="label">BRANCH</text>
+<path d="M135 367H1055" stroke="#26364b"/>
+<g><title>arrival:observe | 0–1000 ms | Wait 1000 ms</title><rect x="135" y="255" width="54.1176" height="30" rx="4" fill="#8f9fbf" opacity=".85"/>
+</g>
+<g><title>arrival:choose-welcome | 1000–1000 ms | visitor_present == true</title><rect x="189.118" y="325" width="5" height="30" rx="4" fill="#bc9df4" opacity=".85"/>
+</g>
+<g><title>greeting:hello | 1000–6000 ms | 您好，欢迎来到今天的开放日。我是门口的迎宾伙伴，很高兴见到您。</title><rect x="189.118" y="115" width="270.588" height="30" rx="4" fill="#69d7c5" opacity=".85"/>
+<text x="196.118" y="135" font-size="11" fill="#101a29">greeting:hello</text>
+</g>
+<g><title>greeting:small-wave | 1500–4000 ms | wave · amplitude 0.35 · speed 0.3</title><rect x="216.176" y="185" width="135.294" height="30" rx="4" fill="#e8b56b" opacity=".85"/>
+<text x="223.176" y="205" font-size="11" fill="#101a29">greeting:small-wave</text>
+</g>
+<g><title>greeting:offer-help | 6500–10500 ms | 您可以先到签到台领取地图。需要我介绍展区方向吗？</title><rect x="486.765" y="115" width="216.471" height="30" rx="4" fill="#69d7c5" opacity=".85"/>
+<text x="493.765" y="135" font-size="11" fill="#101a29">greeting:offer-help</text>
+</g>
+<g><title>greeting:choose-help | 11000–11000 ms | needs_directions == true</title><rect x="730.294" y="325" width="5" height="30" rx="4" fill="#bc9df4" opacity=".85"/>
+</g>
+<g><title>directions:point | 11000–14000 ms | point-left · amplitude 0.3 · speed 0.25</title><rect x="730.294" y="185" width="162.353" height="30" rx="4" fill="#e8b56b" opacity=".85"/>
+<text x="737.294" y="205" font-size="11" fill="#101a29">directions:point</text>
+</g>
+<g><title>directions:guide | 11000–17000 ms | 签到台在您左手边的蓝色标识处。前方的志愿者也会帮助您，祝您参观愉快。</title><rect x="730.294" y="115" width="324.706" height="30" rx="4" fill="#69d7c5" opacity=".85"/>
+<text x="737.294" y="135" font-size="11" fill="#101a29">directions:guide</text>
+</g>
+<text x="30" y="423" class="small">Route: arrival → greeting → directions</text>
+</svg>

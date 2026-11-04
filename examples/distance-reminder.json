@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "distance-reminder",
+  "title": "友好距离提醒：请给彼此一点空间",
+  "description": "提醒话术的离线排练；distance_near 是人工测试事件，不是真实测距或碰撞预防系统。",
+  "entry": "check",
+  "events": { "distance_near": "boolean", "space_restored": "boolean" },
+  "scenes": {
+    "check": {
+      "label": "读取测试事件",
+      "steps": [
+        { "id": "settle", "type": "wait", "at_ms": 0, "duration_ms": 500 },
+        { "id": "choose-reminder", "type": "branch", "at_ms": 500, "event": "distance_near", "equals": true, "then": "remind", "else": "comfortable" }
+      ]
+    },
+    "remind": {
+      "label": "语言优先的温和提醒",
+      "steps": [
+        { "id": "request-space", "type": "speech", "at_ms": 0, "duration_ms": 5000, "text": "我们离得有一点近。请您向后稍退一步，让我们都更从容地交流，谢谢您。", "language": "zh-CN" },
+        { "id": "allow-time", "type": "wait", "at_ms": 5000, "duration_ms": 3000 },
+        { "id": "check-response", "type": "branch", "at_ms": 8000, "event": "space_restored", "equals": true, "then": "thank", "else": "ask-operator" }
+      ]
+    },
+    "comfortable": {
+      "label": "保持交流",
+      "steps": [ { "id": "continue", "type": "speech", "at_ms": 0, "duration_ms": 3000, "text": "现在的交流距离很合适，我们继续吧。", "language": "zh-CN" } ]
+    },
+    "thank": {
+      "label": "感谢配合",
+      "steps": [
+        { "id": "thanks", "type": "speech", "at_ms": 0, "duration_ms": 3500, "text": "谢谢您的配合。现在我们可以继续刚才的话题了。", "language": "zh-CN" },
+        { "id": "small-nod", "type": "gesture", "at_ms": 1000, "duration_ms": 1500, "name": "nod", "amplitude": 0.15, "speed": 0.2 }
+      ]
+    },
+    "ask-operator": {
+      "label": "交给现场工作人员",
+      "steps": [
+        { "id": "pause-conversation", "type": "speech", "at_ms": 0, "duration_ms": 5000, "text": "我先暂停讲解。请现场工作人员帮我们安排合适的交流位置，谢谢。", "language": "zh-CN" },
+        { "id": "wait-for-help", "type": "wait", "at_ms": 5000, "duration_ms": 5000 }
+      ]
+    }
+  }
+}

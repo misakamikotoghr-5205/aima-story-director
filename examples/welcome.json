@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "welcome-concierge",
+  "title": "迎宾：第一次见面的三十秒",
+  "description": "酒店或活动入口的原创短场景。预设事件决定欢迎访客或安静待机，不采集真实传感器信息。",
+  "entry": "arrival",
+  "events": { "visitor_present": "boolean", "needs_directions": "boolean" },
+  "scenes": {
+    "arrival": {
+      "label": "入口观察",
+      "steps": [
+        { "id": "observe", "type": "wait", "at_ms": 0, "duration_ms": 1000 },
+        { "id": "choose-welcome", "type": "branch", "at_ms": 1000, "event": "visitor_present", "equals": true, "then": "greeting", "else": "standby" }
+      ]
+    },
+    "greeting": {
+      "label": "温和欢迎",
+      "steps": [
+        { "id": "hello", "type": "speech", "at_ms": 0, "duration_ms": 5000, "text": "您好，欢迎来到今天的开放日。我是门口的迎宾伙伴，很高兴见到您。", "language": "zh-CN" },
+        { "id": "small-wave", "type": "gesture", "at_ms": 500, "duration_ms": 2500, "name": "wave", "amplitude": 0.35, "speed": 0.3 },
+        { "id": "offer-help", "type": "speech", "at_ms": 5500, "duration_ms": 4000, "text": "您可以先到签到台领取地图。需要我介绍展区方向吗？", "language": "zh-CN" },
+        { "id": "choose-help", "type": "branch", "at_ms": 10000, "event": "needs_directions", "equals": true, "then": "directions", "else": "goodbye" }
+      ]
+    },
+    "standby": {
+      "label": "无人时安静待机",
+      "steps": [ { "id": "idle", "type": "wait", "at_ms": 0, "duration_ms": 5000 } ]
+    },
+    "directions": {
+      "label": "指向签到台",
+      "steps": [
+        { "id": "point", "type": "gesture", "at_ms": 0, "duration_ms": 3000, "name": "point-left", "amplitude": 0.3, "speed": 0.25 },
+        { "id": "guide", "type": "speech", "at_ms": 0, "duration_ms": 6000, "text": "签到台在您左手边的蓝色标识处。前方的志愿者也会帮助您，祝您参观愉快。", "language": "zh-CN" }
+      ]
+    },
+    "goodbye": {
+      "label": "礼貌结束",
+      "steps": [
+        { "id": "nod", "type": "gesture", "at_ms": 0, "duration_ms": 1800, "name": "nod", "amplitude": 0.2, "speed": 0.25 },
+        { "id": "wish", "type": "speech", "at_ms": 0, "duration_ms": 3000, "text": "好的，祝您度过愉快的一天。", "language": "zh-CN" }
+      ]
+    }
+  }
+}

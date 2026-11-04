@@ -1,0 +1,188 @@
+{
+  "format_version": 1,
+  "show_id": "distance-reminder",
+  "title": "友好距离提醒：请给彼此一点空间",
+  "mode": "dry-run",
+  "hardware_sent": false,
+  "source_sha256": "b87f0e957ce9a692d10012441effd766e50b292608b61cb76639c467ba0653bb",
+  "events_sha256": "ae68388e978a14ef57f0895919a30f7c53248860330098cd7d6d9cbf863e9c2a",
+  "events": {
+    "distance_near": true,
+    "space_restored": false
+  },
+  "route": [
+    "check",
+    "remind",
+    "ask-operator"
+  ],
+  "duration_ms": 18500,
+  "timeline": [
+    {
+      "index": 0,
+      "command_id": "check:settle",
+      "scene_id": "check",
+      "scene_label": "读取测试事件",
+      "type": "wait",
+      "start_ms": 0,
+      "end_ms": 500,
+      "label": "Wait 500 ms",
+      "parameters": {
+        "duration_ms": 500
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "check:settle"
+      },
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "b3a29e39e9451df1b4af0bfcdb0c6788bbf72166bc8c86281f8f0b6eab359fe4"
+    },
+    {
+      "index": 1,
+      "command_id": "check:choose-reminder",
+      "scene_id": "check",
+      "scene_label": "读取测试事件",
+      "type": "branch",
+      "start_ms": 500,
+      "end_ms": 500,
+      "label": "distance_near == true",
+      "parameters": {
+        "event": "distance_near",
+        "equals": true,
+        "then": "remind",
+        "else": "comfortable"
+      },
+      "decision": {
+        "event": "distance_near",
+        "present": true,
+        "observed": true,
+        "matched": true,
+        "selected_scene": "remind"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "check:choose-reminder"
+      },
+      "previous_hash": "b3a29e39e9451df1b4af0bfcdb0c6788bbf72166bc8c86281f8f0b6eab359fe4",
+      "hash": "5144850ac45c27965682ceaad0f363f4bbfdc743e2f7d0572668ad144f3fe3cd"
+    },
+    {
+      "index": 2,
+      "command_id": "remind:request-space",
+      "scene_id": "remind",
+      "scene_label": "语言优先的温和提醒",
+      "type": "speech",
+      "start_ms": 500,
+      "end_ms": 5500,
+      "label": "我们离得有一点近。请您向后稍退一步，让我们都更从容地交流，谢谢您。",
+      "parameters": {
+        "duration_ms": 5000,
+        "text": "我们离得有一点近。请您向后稍退一步，让我们都更从容地交流，谢谢您。",
+        "language": "zh-CN"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "remind:request-space"
+      },
+      "previous_hash": "5144850ac45c27965682ceaad0f363f4bbfdc743e2f7d0572668ad144f3fe3cd",
+      "hash": "bb557ffb8e0c2cce4db43549cdc3f01deee869de27fcd9150073103ee8ba78f0"
+    },
+    {
+      "index": 3,
+      "command_id": "remind:allow-time",
+      "scene_id": "remind",
+      "scene_label": "语言优先的温和提醒",
+      "type": "wait",
+      "start_ms": 5500,
+      "end_ms": 8500,
+      "label": "Wait 3000 ms",
+      "parameters": {
+        "duration_ms": 3000
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "remind:allow-time"
+      },
+      "previous_hash": "bb557ffb8e0c2cce4db43549cdc3f01deee869de27fcd9150073103ee8ba78f0",
+      "hash": "0b8e0dbcd22e1ec2e0d221a3d55a1f91f52d996659c339cb68e34d08fcde2b13"
+    },
+    {
+      "index": 4,
+      "command_id": "remind:check-response",
+      "scene_id": "remind",
+      "scene_label": "语言优先的温和提醒",
+      "type": "branch",
+      "start_ms": 8500,
+      "end_ms": 8500,
+      "label": "space_restored == true",
+      "parameters": {
+        "event": "space_restored",
+        "equals": true,
+        "then": "thank",
+        "else": "ask-operator"
+      },
+      "decision": {
+        "event": "space_restored",
+        "present": true,
+        "observed": false,
+        "matched": false,
+        "selected_scene": "ask-operator"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "remind:check-response"
+      },
+      "previous_hash": "0b8e0dbcd22e1ec2e0d221a3d55a1f91f52d996659c339cb68e34d08fcde2b13",
+      "hash": "2d53f73442f9ed34e0ae36f4ea1117447b9de23ef9708acc1572759274c91de4"
+    },
+    {
+      "index": 5,
+      "command_id": "ask-operator:pause-conversation",
+      "scene_id": "ask-operator",
+      "scene_label": "交给现场工作人员",
+      "type": "speech",
+      "start_ms": 8500,
+      "end_ms": 13500,
+      "label": "我先暂停讲解。请现场工作人员帮我们安排合适的交流位置，谢谢。",
+      "parameters": {
+        "duration_ms": 5000,
+        "text": "我先暂停讲解。请现场工作人员帮我们安排合适的交流位置，谢谢。",
+        "language": "zh-CN"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "ask-operator:pause-conversation"
+      },
+      "previous_hash": "2d53f73442f9ed34e0ae36f4ea1117447b9de23ef9708acc1572759274c91de4",
+      "hash": "1a6533d3d0c1873294be45985d9e487f8504e891ad3b34dfadd8dc3535de69d8"
+    },
+    {
+      "index": 6,
+      "command_id": "ask-operator:wait-for-help",
+      "scene_id": "ask-operator",
+      "scene_label": "交给现场工作人员",
+      "type": "wait",
+      "start_ms": 13500,
+      "end_ms": 18500,
+      "label": "Wait 5000 ms",
+      "parameters": {
+        "duration_ms": 5000
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "ask-operator:wait-for-help"
+      },
+      "previous_hash": "1a6533d3d0c1873294be45985d9e487f8504e891ad3b34dfadd8dc3535de69d8",
+      "hash": "d4e7ed75d8554d9d50a71ed54d2c4145ae4ec354ae22291da5f162a396ceb2d4"
+    }
+  ],
+  "final_hash": "d4e7ed75d8554d9d50a71ed54d2c4145ae4ec354ae22291da5f162a396ceb2d4",
+  "integrity_note": "SHA256 checks detect accidental edits; this is not a signature or evidence of physical robot execution.",
+  "manifest_hash": "d64a46b30851f38ba6838a9d147f194bf1bf1e9c02fa3048b3a2318d8264fe38"
+}

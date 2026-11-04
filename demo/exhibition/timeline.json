@@ -1,0 +1,204 @@
+{
+  "format_version": 1,
+  "show_id": "exhibition-story",
+  "title": "展览导览：一件展品的两种讲法",
+  "mode": "dry-run",
+  "hardware_sent": false,
+  "source_sha256": "f52c05488ccb3e430c6265a34cd1a4a3d407091bf103445cc52dd85bc1c43e87",
+  "events_sha256": "810603b57c572d5b174e529b8e9dd0e8fc24f7ad59e29e9e8f99283aa019dc60",
+  "events": {
+    "wants_detail": true
+  },
+  "route": [
+    "intro",
+    "detail"
+  ],
+  "duration_ms": 25000,
+  "timeline": [
+    {
+      "index": 0,
+      "command_id": "intro:introduce",
+      "scene_id": "intro",
+      "scene_label": "展品开场",
+      "type": "speech",
+      "start_ms": 0,
+      "end_ms": 7000,
+      "label": "欢迎来到未来城市展台。眼前的节水模型，把一次普通的洗手，变成了一段可以观察的水循环。",
+      "parameters": {
+        "duration_ms": 7000,
+        "text": "欢迎来到未来城市展台。眼前的节水模型，把一次普通的洗手，变成了一段可以观察的水循环。",
+        "language": "zh-CN"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "intro:introduce"
+      },
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "fea0a78a74bd1d90a72d7e54b4bb94aa50be54e665439b2c1dc8afcf1f3e22be"
+    },
+    {
+      "index": 1,
+      "command_id": "intro:present",
+      "scene_id": "intro",
+      "scene_label": "展品开场",
+      "type": "gesture",
+      "start_ms": 800,
+      "end_ms": 4300,
+      "label": "open-arms · amplitude 0.3 · speed 0.25",
+      "parameters": {
+        "duration_ms": 3500,
+        "name": "open-arms",
+        "amplitude": 0.3,
+        "speed": 0.25
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "intro:present"
+      },
+      "previous_hash": "fea0a78a74bd1d90a72d7e54b4bb94aa50be54e665439b2c1dc8afcf1f3e22be",
+      "hash": "d7b47bef007108693e5e69f88a27f1db895900e854cc00dc5362b254254b5ce3"
+    },
+    {
+      "index": 2,
+      "command_id": "intro:look",
+      "scene_id": "intro",
+      "scene_label": "展品开场",
+      "type": "wait",
+      "start_ms": 7000,
+      "end_ms": 9000,
+      "label": "Wait 2000 ms",
+      "parameters": {
+        "duration_ms": 2000
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "intro:look"
+      },
+      "previous_hash": "d7b47bef007108693e5e69f88a27f1db895900e854cc00dc5362b254254b5ce3",
+      "hash": "ce8f89665d2bb92576bc479d1603d4720669b36d6639a8b2fd33494df4fa7210"
+    },
+    {
+      "index": 3,
+      "command_id": "intro:select-depth",
+      "scene_id": "intro",
+      "scene_label": "展品开场",
+      "type": "branch",
+      "start_ms": 9000,
+      "end_ms": 9000,
+      "label": "wants_detail == true",
+      "parameters": {
+        "event": "wants_detail",
+        "equals": true,
+        "then": "detail",
+        "else": "summary"
+      },
+      "decision": {
+        "event": "wants_detail",
+        "present": true,
+        "observed": true,
+        "matched": true,
+        "selected_scene": "detail"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "intro:select-depth"
+      },
+      "previous_hash": "ce8f89665d2bb92576bc479d1603d4720669b36d6639a8b2fd33494df4fa7210",
+      "hash": "41214eaf4ed4a378af295cc2cbcc3756d34332c85ea770f364da093bb3503da7"
+    },
+    {
+      "index": 4,
+      "command_id": "detail:point-filter",
+      "scene_id": "detail",
+      "scene_label": "深入观察",
+      "type": "gesture",
+      "start_ms": 9000,
+      "end_ms": 12000,
+      "label": "point-right · amplitude 0.25 · speed 0.25",
+      "parameters": {
+        "duration_ms": 3000,
+        "name": "point-right",
+        "amplitude": 0.25,
+        "speed": 0.25
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "detail:point-filter"
+      },
+      "previous_hash": "41214eaf4ed4a378af295cc2cbcc3756d34332c85ea770f364da093bb3503da7",
+      "hash": "c100454b6db3853b89c9b403703944116b8fbbc2ad991bf7ad79cac861503355"
+    },
+    {
+      "index": 5,
+      "command_id": "detail:explain-loop",
+      "scene_id": "detail",
+      "scene_label": "深入观察",
+      "type": "speech",
+      "start_ms": 9000,
+      "end_ms": 18000,
+      "label": "右侧的透明容器代表过滤过程。模型中的蓝色小球代表水量，它们经过处理后，可以再次用于冲洗。这里只展示原理，不代表真实净化效果。",
+      "parameters": {
+        "duration_ms": 9000,
+        "text": "右侧的透明容器代表过滤过程。模型中的蓝色小球代表水量，它们经过处理后，可以再次用于冲洗。这里只展示原理，不代表真实净化效果。",
+        "language": "zh-CN"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "detail:explain-loop"
+      },
+      "previous_hash": "c100454b6db3853b89c9b403703944116b8fbbc2ad991bf7ad79cac861503355",
+      "hash": "848fc9deb6fdf501a5856e16de5250184ade56e71f659358fa0922d96dab7415"
+    },
+    {
+      "index": 6,
+      "command_id": "detail:consider",
+      "scene_id": "detail",
+      "scene_label": "深入观察",
+      "type": "wait",
+      "start_ms": 18000,
+      "end_ms": 20000,
+      "label": "Wait 2000 ms",
+      "parameters": {
+        "duration_ms": 2000
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "detail:consider"
+      },
+      "previous_hash": "848fc9deb6fdf501a5856e16de5250184ade56e71f659358fa0922d96dab7415",
+      "hash": "359cad816d7b18c49ee6cf46424a80f389aadc7dce9cbf34f7fbdab5189abf2e"
+    },
+    {
+      "index": 7,
+      "command_id": "detail:question",
+      "scene_id": "detail",
+      "scene_label": "深入观察",
+      "type": "speech",
+      "start_ms": 20000,
+      "end_ms": 25000,
+      "label": "如果把这个想法带回家，您会先从哪一种日常用水开始改变呢？",
+      "parameters": {
+        "duration_ms": 5000,
+        "text": "如果把这个想法带回家，您会先从哪一种日常用水开始改变呢？",
+        "language": "zh-CN"
+      },
+      "adapter_result": {
+        "status": "simulated",
+        "hardware_sent": false,
+        "command_id": "detail:question"
+      },
+      "previous_hash": "359cad816d7b18c49ee6cf46424a80f389aadc7dce9cbf34f7fbdab5189abf2e",
+      "hash": "9f4f69f4b9ecc43fd31427c9c12ac8bb711ce3c3e547a9846f024b77f06f477c"
+    }
+  ],
+  "final_hash": "9f4f69f4b9ecc43fd31427c9c12ac8bb711ce3c3e547a9846f024b77f06f477c",
+  "integrity_note": "SHA256 checks detect accidental edits; this is not a signature or evidence of physical robot execution.",
+  "manifest_hash": "1524e92f2ac9562ce1cf5a57919e5fde5f946cb7d6cd395dc1456e52de02f575"
+}

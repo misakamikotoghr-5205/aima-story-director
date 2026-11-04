@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 435" role="img" aria-labelledby="title desc">
+<title id="title">友好距离提醒：请给彼此一点空间 — dry-run timeline</title>
+<desc id="desc">Simulated speech, gestures, waits and event decisions across 18.5 seconds. No hardware commands were sent.</desc>
+<style>text{font-family:system-ui,"Noto Sans CJK SC",sans-serif} .small{font-size:12px;fill:#a9b9c9}.label{font-size:13px;fill:#e8eff7}</style>
+<rect width="1100" height="435" rx="12" fill="#101a29"/>
+<text x="30" y="37" font-size="24" fill="#f1f6fc">Distance Reminder</text>
+<text x="30" y="65" class="small">AIMA STORY DIRECTOR / DRY-RUN / NO HARDWARE COMMANDS</text>
+<path d="M135 95V365" stroke="#26364b"/>
+<text x="135" y="390" text-anchor="middle" class="small">0s</text>
+<path d="M227 95V365" stroke="#26364b"/>
+<text x="227" y="390" text-anchor="middle" class="small">1.85s</text>
+<path d="M319 95V365" stroke="#26364b"/>
+<text x="319" y="390" text-anchor="middle" class="small">3.7s</text>
+<path d="M411 95V365" stroke="#26364b"/>
+<text x="411" y="390" text-anchor="middle" class="small">5.55s</text>
+<path d="M503 95V365" stroke="#26364b"/>
+<text x="503" y="390" text-anchor="middle" class="small">7.4s</text>
+<path d="M595 95V365" stroke="#26364b"/>
+<text x="595" y="390" text-anchor="middle" class="small">9.25s</text>
+<path d="M687 95V365" stroke="#26364b"/>
+<text x="687" y="390" text-anchor="middle" class="small">11.1s</text>
+<path d="M779 95V365" stroke="#26364b"/>
+<text x="779" y="390" text-anchor="middle" class="small">12.95s</text>
+<path d="M871 95V365" stroke="#26364b"/>
+<text x="871" y="390" text-anchor="middle" class="small">14.8s</text>
+<path d="M963 95V365" stroke="#26364b"/>
+<text x="963" y="390" text-anchor="middle" class="small">16.65s</text>
+<path d="M1055 95V365" stroke="#26364b"/>
+<text x="1055" y="390" text-anchor="middle" class="small">18.5s</text>
+<text x="30" y="135" class="label">SPEECH</text>
+<path d="M135 157H1055" stroke="#26364b"/>
+<text x="30" y="205" class="label">GESTURE</text>
+<path d="M135 227H1055" stroke="#26364b"/>
+<text x="30" y="275" class="label">WAIT</text>
+<path d="M135 297H1055" stroke="#26364b"/>
+<text x="30" y="345" class="label">BRANCH</text>
+<path d="M135 367H1055" stroke="#26364b"/>
+<g><title>check:settle | 0–500 ms | Wait 500 ms</title><rect x="135" y="255" width="24.8649" height="30" rx="4" fill="#8f9fbf" opacity=".85"/>
+</g>
+<g><title>check:choose-reminder | 500–500 ms | distance_near == true</title><rect x="159.865" y="325" width="5" height="30" rx="4" fill="#bc9df4" opacity=".85"/>
+</g>
+<g><title>remind:request-space | 500–5500 ms | 我们离得有一点近。请您向后稍退一步，让我们都更从容地交流，谢谢您。</title><rect x="159.865" y="115" width="248.649" height="30" rx="4" fill="#69d7c5" opacity=".85"/>
+<text x="166.865" y="135" font-size="11" fill="#101a29">remind:request-space</text>
+</g>
+<g><title>remind:allow-time | 5500–8500 ms | Wait 3000 ms</title><rect x="408.514" y="255" width="149.189" height="30" rx="4" fill="#8f9fbf" opacity=".85"/>
+<text x="415.514" y="275" font-size="11" fill="#101a29">remind:allow-time</text>
+</g>
+<g><title>remind:check-response | 8500–8500 ms | space_restored == true</title><rect x="557.703" y="325" width="5" height="30" rx="4" fill="#bc9df4" opacity=".85"/>
+</g>
+<g><title>ask-operator:pause-conversation | 8500–13500 ms | 我先暂停讲解。请现场工作人员帮我们安排合适的交流位置，谢谢。</title><rect x="557.703" y="115" width="248.649" height="30" rx="4" fill="#69d7c5" opacity=".85"/>
+<text x="564.703" y="135" font-size="11" fill="#101a29">ask-operator:pause-conversation</text>
+</g>
+<g><title>ask-operator:wait-for-help | 13500–18500 ms | Wait 5000 ms</title><rect x="806.351" y="255" width="248.649" height="30" rx="4" fill="#8f9fbf" opacity=".85"/>
+<text x="813.351" y="275" font-size="11" fill="#101a29">ask-operator:wait-for-help</text>
+</g>
+<text x="30" y="423" class="small">Route: check → remind → ask-operator</text>
+</svg>
