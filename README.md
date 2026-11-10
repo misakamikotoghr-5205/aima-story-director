@@ -115,3 +115,9 @@ python3 -m aima_director rehearse examples/distance-reminder.json --out output/r
 [同类工具与开源比较](docs/landscape.md) 记录 Spot Choreographer、BehaviorTree.CPP 的既有能力、许可证边界、差距及本次独立实现的改进。时间线与分支行为的概念并非本项目首创。
 
 MIT License。示例脚本、渲染图与实现代码均为本项目原创内容；本项目并非智元官方产品。
+
+## Local demonstration, November 10
+
+## 本地dry-run演示
+
+[120秒双语静音演示](docs/media/aima-local-demo.mp4)把本次真实CLI运行的三份时间线与分支排练数据绘为说明图，并明确标注离线dry-run；[证据记录](docs/evidence/local-demo-20261110.json)保留命令、退出码、输出指纹及实际MP4解码帧。三个示例分别17秒/8条、25秒/8条、18.5秒/7条模拟指令，硬件命令均为0。它不是连续终端录像或机器人表演，不证明灵心/灵创原生作品发布、AimDK机型适配、传感器或现场安全能力。原创内容MIT，Codex辅助实现；运行时没有LLM、TTS或在线API调用。

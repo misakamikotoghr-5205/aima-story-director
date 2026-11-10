@@ -1,0 +1,262 @@
+{
+  "schema": "local-prepared-demo/v1",
+  "project": "aima-story-director",
+  "prepared_on": "2026-11-10",
+  "source_head_at_local_run": "1de2dfa196b181bfc9a6e2ac274f872ccf9a172a",
+  "scope": "Prepared local demonstration material. No new official registration, submission, deployment or review receipt is established by this file.",
+  "video": {
+    "file": "docs/media/aima-local-demo.mp4",
+    "sha256": "794a2cc7b7e18fd574a859f1bbe945c44ea048aeb81d5a485fe7f77873216198",
+    "bytes": 765571,
+    "duration_seconds": 120.0,
+    "width": 1920,
+    "height": 1080,
+    "frames_per_second": 5,
+    "codec": "H.264",
+    "pixel_format": "yuv420p",
+    "audio_streams": 0,
+    "captions": "Permanent Chinese and English text; silent"
+  },
+  "presentation": "Edited actual screenshots or actual-result evidence diagrams; not continuous screen recording",
+  "actual_decoded_sample_frames": [
+    {
+      "file": "docs/media/actual-mp4-frame-030s.png",
+      "sha256": "7a8abf095a37209bab7da9f5ebff444d57c3c6e16e74cc435d4e01fd705c7389",
+      "width": 1920,
+      "height": 1080,
+      "sample_time_seconds": 30.0,
+      "decoded_frame_number": 150,
+      "origin": "Decoded from the actual final MP4; not a source card or reconstructed screenshot",
+      "scene": 2,
+      "scene_description": "Welcome scenario: 17s, 8 simulated commands, hardware commands sent: zero."
+    },
+    {
+      "file": "docs/media/actual-mp4-frame-090s.png",
+      "sha256": "ef376ac8677e04c3febb7a78fef0cbb7418e01244aabc7f07d9157244af0c2c7",
+      "width": 1920,
+      "height": 1080,
+      "sample_time_seconds": 90.0,
+      "decoded_frame_number": 450,
+      "origin": "Decoded from the actual final MP4; not a source card or reconstructed screenshot",
+      "scene": 5,
+      "scene_description": "Actual bounded branch rehearsal and integrity checks; hardware mode is rejected."
+    }
+  ],
+  "validation": {
+    "ffprobe_verified": true,
+    "full_decode_exit_code": 0,
+    "full_decode_errors": 0,
+    "scene_midpoints_decoded_and_visually_reviewed": 6,
+    "all_original_scene_cards_and_actual_decoded_midpoints_reviewed": true,
+    "all_decoded_midpoints_match_expected_card_with_mean_absolute_pixel_error_below": 8,
+    "contains_private_paths_contacts_or_account_screenshots": false
+  },
+  "actual_local_commands": [
+    {
+      "run": "aima-welcome",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "simulate",
+        "examples/welcome.json",
+        "--events",
+        "examples/welcome.events.json",
+        "--out",
+        "{OUTPUT_ROOT}/aima-welcome"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 0
+    },
+    {
+      "run": "aima-welcome-verify",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "verify",
+        "{OUTPUT_ROOT}/aima-welcome/timeline.json"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 0
+    },
+    {
+      "run": "aima-exhibition",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "simulate",
+        "examples/exhibition.json",
+        "--events",
+        "examples/exhibition.events.json",
+        "--out",
+        "{OUTPUT_ROOT}/aima-exhibition"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 0
+    },
+    {
+      "run": "aima-exhibition-verify",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "verify",
+        "{OUTPUT_ROOT}/aima-exhibition/timeline.json"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 0
+    },
+    {
+      "run": "aima-distance-reminder",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "simulate",
+        "examples/distance-reminder.json",
+        "--events",
+        "examples/distance-reminder.events.json",
+        "--out",
+        "{OUTPUT_ROOT}/aima-distance-reminder"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 0
+    },
+    {
+      "run": "aima-distance-reminder-verify",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "verify",
+        "{OUTPUT_ROOT}/aima-distance-reminder/timeline.json"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 0
+    },
+    {
+      "run": "aima-rehearsal",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "rehearse",
+        "examples/distance-reminder.json",
+        "--out",
+        "{OUTPUT_ROOT}/aima-rehearsal"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 0
+    },
+    {
+      "run": "aima-hardware-rejection",
+      "working_directory": "repository root",
+      "command_argv": [
+        "python3",
+        "-m",
+        "aima_director",
+        "simulate",
+        "examples/welcome.json",
+        "--mode",
+        "hardware",
+        "--out",
+        "{OUTPUT_ROOT}/rejected-hardware"
+      ],
+      "output_destination_redacted": true,
+      "redaction_note": "Actual private output path replaced by {OUTPUT_ROOT}; other arguments and exit code unchanged.",
+      "exit_code": 2
+    }
+  ],
+  "actual_local_output_fingerprints": [
+    {
+      "example": "examples/welcome.json",
+      "output_kind": "timeline.json",
+      "sha256": "5ba031eaa3073ddb6420e46e281436203a6046f3665caf2ecad541e72e21d28c",
+      "byte_equal_existing_demo": true
+    },
+    {
+      "example": "examples/exhibition.json",
+      "output_kind": "timeline.json",
+      "sha256": "bc2344b79681e2b20a2d5e4228e5900c31e1d22a0cea7281e94cbb54c27c92ec",
+      "byte_equal_existing_demo": true
+    },
+    {
+      "example": "examples/distance-reminder.json",
+      "output_kind": "timeline.json",
+      "sha256": "bd8098fb9d8e414812749ed894c6446ce92f051ef3ee319fe6fdc0f2fce8ba31",
+      "byte_equal_existing_demo": true
+    },
+    {
+      "example": "examples/distance-reminder.json",
+      "output_kind": "rehearsal.json",
+      "sha256": "a635e9a7778e475e85b03109694bce90c1eb0b94e8345453bcc9a09e778f52c5"
+    }
+  ],
+  "claims": {
+    "actual_local_cli_rerun_date": "2026-11-10",
+    "mode": "dry-run",
+    "hardware_commands_sent": 0,
+    "simulated_scenarios": [
+      {
+        "name": "welcome",
+        "duration_ms": 17000,
+        "commands": 8
+      },
+      {
+        "name": "exhibition",
+        "duration_ms": 25000,
+        "commands": 8
+      },
+      {
+        "name": "distance-reminder",
+        "duration_ms": 18500,
+        "commands": 7
+      }
+    ],
+    "rehearsal": {
+      "feasible_paths": 3,
+      "representative_cases": 5,
+      "covered_outcomes": 4,
+      "total_outcomes": 4,
+      "complete_within_DSL_limits": true
+    },
+    "robot_or_sensor_test_claimed": false,
+    "native_platform_publication_claimed": false,
+    "runtime_model_or_api_used": false
+  },
+  "limitations": [
+    "Three actual local deterministic dry-runs rerun on 2026-11-10 and matching existing demos byte-for-byte.",
+    "No hardware commands, robot, sensors, AimDK device adapter, LinkSoul or LinkCraft publication proof.",
+    "Edited data-bound timeline diagrams, not captured terminal or robot footage."
+  ],
+  "media_attribution": {
+    "editorial_design": "Original Pillow shapes and text generated for this video",
+    "font": "System Noto Sans CJK (SIL Open Font License 1.1); no font binary redistributed",
+    "music": "none",
+    "voice": "none",
+    "third_party_logos": "none",
+    "AI_assistance": "Codex-assisted scripts, captions and design; runtime claims follow scene labels"
+  },
+  "main_operator_review": {
+    "actual_contact_sheet_reviewed": true,
+    "full_size_actual_frame_reviewed": 5,
+    "privacy_and_legibility_passed": true
+  },
+  "contest_platform_submission_verified_by_video": false
+}
