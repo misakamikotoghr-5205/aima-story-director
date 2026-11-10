@@ -2,7 +2,7 @@
 
 把迎宾、导览和互动话术写成可检查的 JSON 场景，再离线排练每个动作和事件分支。运行一次即可得到时间线、SVG 排演图、台词文本和执行准备清单。
 
-这是面向用户指定的 [AIMA 百大创作者计划 / 智元灵创平台](https://linkcraft.agibot.com/?activityPage=page2&locale=zh-CN&page=activity) 制作的独立项目。**当前交付是可运行的离线导演工具，未接入真机、未上传灵创平台，也未完成活动报名。**
+这是面向用户指定的 [AIMA 百大创作者计划 / 智元灵创平台](https://linkcraft.agibot.com/?activityPage=page2&locale=zh-CN&page=activity) 制作的独立项目。**当前交付是可运行的离线导演工具，未接入真机，平台原生作品尚未核验。用户已确认创作者计划申请提交，保留自报阶段，不重复申请；本记录未独立核验申请ID或审核结果。**
 
 ![迎宾场景的实际生成时间线](demo/welcome/timeline.svg)
 
